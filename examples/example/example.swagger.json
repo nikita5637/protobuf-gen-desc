@@ -1,0 +1,196 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example proto package",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "ExampleService1"
+    },
+    {
+      "name": "ExampleService2"
+    }
+  ],
+  "host": "localhost:8080",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/service1/method1": {
+      "post": {
+        "summary": "ExampleServiceMethod1 ...",
+        "operationId": "ExampleService1_ExampleServiceMethod1",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/exampleExampleServiceMethod1Response"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/exampleExampleServiceMethod1Request"
+            }
+          }
+        ],
+        "tags": [
+          "ExampleService1"
+        ]
+      }
+    },
+    "/v1/service1/method2": {
+      "delete": {
+        "summary": "ExampleServiceMethod2 ...",
+        "operationId": "ExampleService1_ExampleServiceMethod2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/exampleExampleServiceMethod2Response"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "ExampleService1"
+        ]
+      }
+    },
+    "/v1/service2/method3": {
+      "get": {
+        "summary": "ExampleServiceMethod3 ...",
+        "operationId": "ExampleService2_ExampleServiceMethod3",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/exampleExampleServiceMethod3Response"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "ExampleService2"
+        ]
+      }
+    },
+    "/v1/service2/method4": {
+      "put": {
+        "summary": "ExampleServiceMethod4 ...",
+        "operationId": "ExampleService2_ExampleServiceMethod4",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/exampleExampleServiceMethod4Response"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/exampleExampleServiceMethod4Request"
+            }
+          }
+        ],
+        "tags": [
+          "ExampleService2"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "exampleExampleServiceMethod1Request": {
+      "type": "object",
+      "description": "ExampleServiceMethod1Request ..."
+    },
+    "exampleExampleServiceMethod1Response": {
+      "type": "object",
+      "description": "ExampleServiceMethod1Response ..."
+    },
+    "exampleExampleServiceMethod2Response": {
+      "type": "object",
+      "description": "ExampleServiceMethod2Response ..."
+    },
+    "exampleExampleServiceMethod3Response": {
+      "type": "object",
+      "description": "ExampleServiceMethod3Response ..."
+    },
+    "exampleExampleServiceMethod4Request": {
+      "type": "object",
+      "description": "ExampleServiceMethod4Request ..."
+    },
+    "exampleExampleServiceMethod4Response": {
+      "type": "object",
+      "description": "ExampleServiceMethod4Response ..."
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

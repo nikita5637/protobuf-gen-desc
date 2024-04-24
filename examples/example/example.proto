@@ -1,0 +1,91 @@
+// Global comment
+syntax = "proto3";
+
+// Package comment
+package example;
+
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "github.com/nikita5637/protobuf-gen-desc/examples/example;example_pkg";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+	info: {
+		title: "Example proto package";
+		version: "1.0.0";
+	};
+	host: "localhost:8080";
+	schemes: HTTP;
+	schemes: HTTPS;
+	consumes: "application/json";
+	produces: "application/json";
+};
+
+// ExampleServiceMethod1Request ...
+message ExampleServiceMethod1Request {
+}
+
+// ExampleServiceMethod1Response ...
+message ExampleServiceMethod1Response {
+}
+
+// ExampleServiceMethod2Request ...
+message ExampleServiceMethod2Request {
+}
+
+// ExampleServiceMethod2Response ...
+message ExampleServiceMethod2Response {
+}
+
+// ExampleService1 ...
+service ExampleService1 {
+	// ExampleServiceMethod1 ...
+	rpc ExampleServiceMethod1(ExampleServiceMethod1Request) returns (ExampleServiceMethod1Response) {
+		option (google.api.http) = {
+			post: "/v1/service1/method1"
+			body: "*"
+		};
+	};
+
+	// ExampleServiceMethod2 ...
+	rpc ExampleServiceMethod2(ExampleServiceMethod2Request) returns (ExampleServiceMethod2Response) {
+		option (google.api.http) = {
+			delete: "/v1/service1/method2"
+		};
+	};
+}
+
+// ExampleServiceMethod3Request ...
+message ExampleServiceMethod3Request {
+}
+
+// ExampleServiceMethod3Response ...
+message ExampleServiceMethod3Response {
+}
+
+// ExampleServiceMethod4Request ...
+message ExampleServiceMethod4Request {
+}
+
+// ExampleServiceMethod4Response ...
+message ExampleServiceMethod4Response {
+}
+
+// ExampleService2 ...
+service ExampleService2 {
+	// ExampleServiceMethod3 ...
+	rpc ExampleServiceMethod3(ExampleServiceMethod3Request) returns (ExampleServiceMethod3Response) {
+		option (google.api.http) = {
+			get: "/v1/service2/method3"
+		};
+	};
+
+	// ExampleServiceMethod4 ...
+	rpc ExampleServiceMethod4(ExampleServiceMethod4Request) returns (ExampleServiceMethod4Response) {
+		option (google.api.http) = {
+			put: "/v1/service2/method4"
+			body: "*"
+		};
+	};
+}
+
